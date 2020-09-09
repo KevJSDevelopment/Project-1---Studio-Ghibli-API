@@ -33,6 +33,7 @@ def create_film_data
     get_films.each do |film|
         Film.create({title: film["title"], description: film["description"], release_date: film["release_date"], rating: film["rt_score"]})
     end
+    binding.pry
 end
 
 create_film_data
