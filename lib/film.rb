@@ -1,2 +1,2 @@
-class Film < ActiveRecord::Base
-end
+# class Film < ActiveRecord::Base
+# end
