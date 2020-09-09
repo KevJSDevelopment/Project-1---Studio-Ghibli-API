@@ -5,3 +5,6 @@ gem 'sqlite3'
 gem 'activerecord', '~> 6.0'
 gem 'sinatra-activerecord'
 gem 'require_all'
+gem 'rest-client'
+gem 'json'
+
