@@ -1,0 +1,5 @@
+gem 'pry'
+gem 'rake'
+gem 'sqlite3'
+gem 'sinatra-activerecord'
+gem 'require_all'
