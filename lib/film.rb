@@ -1,2 +1,3 @@
-# class Film < ActiveRecord::Base
-# end
+class Film < ActiveRecord::Base
+    has_many :people
+end

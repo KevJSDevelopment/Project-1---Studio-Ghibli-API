@@ -3,7 +3,8 @@ class CreatePeople < ActiveRecord::Migration[6.0]
     create_table :people do |t|
       t.string :name
       t.string :gender
-      t.string :species
+      t.integer :species_id
+      t.integer :film_id
     end
   end
 end

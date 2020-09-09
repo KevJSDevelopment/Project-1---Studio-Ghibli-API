@@ -1,5 +1,6 @@
 require 'bundler/setup'
 require 'pry'
+require 'active_record'
 require 'require_all'
 require_all('lib')
 
