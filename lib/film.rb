@@ -1,3 +1,68 @@
 class Film < ActiveRecord::Base
     has_many :people
+
+    def self.film_search_by_year(start_year, end_year)
+        self.all.select do |film|
+            film[:release_date] >= start_year && film[:release_date] <= end_year
+        end.map do |film|
+            film[:title]
+        end
+    end
+
+    def self.find_film(film_name)
+        Film.all.find do |film|
+            film[:title] == film_name
+        end
+    end
+
+    def self.find_film_id_by_name(film_title)
+        found_film = Film.all.find do |film|
+            film[:title] == film_title
+        end
+        found_film[:id]
+        # binding.pry
+    end
+
+    def self.find_people_in_this_film(film_name)
+        found_film = self.find_film(film_name)
+        Person.all.select do |person|
+            person[:film_id] == found_film[:id]
+        end.map do |person|
+            person[:name]
+        end
+    end
+
+    def self.highest_rated
+        Film.all.max_by(3) do |film|
+            film[:rating]
+        end.map do |film|
+            film[:title]
+        end
+    end
+
+    def self.lowest_rated
+        Film.all.min_by(3) do |film|
+            film[:rating]
+        end.map do |film|
+            film[:title]
+        end
+    end
+
+    def self.list_by_rating
+        Film.all.sort_by{|film| -film[:rating]}.map do |film|
+            film[:title]
+        end
+    end
+
+    # def self.film_locations(film)
+    #     film_id = self.find_film_id_by_name(film)
+    #     Person.all.select do |person|
+    #         person[:film_id] == film_id
+    #         # binding.pry
+    #     end.map do |person|
+    #         person.locations
+    #     end
+    # end
+
 end
+#binding.pry
