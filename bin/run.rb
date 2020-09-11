@@ -3,6 +3,27 @@ require_relative '../lib/console_communicator.rb'
 require 'colorize'
 
 exit_app = false
+puts "                         !         !          
+                        ! !       ! !          
+                       ! . !     ! . !          
+                         ^^^^^^^^^ ^            
+                       ^             ^          
+                     ^  (0)       (0)  ^       
+                    ^        \"\"         ^       
+                  ^    ***************    ^     
+                 ^   *                 *   ^    
+                ^   *   /\\   /\\   /\\    *    ^   
+               ^   *                     *    ^
+              ^   *   /\\   /\\   /\\   /\\   *    ^
+             ^   *                         *    ^
+             ^  *                           *   ^
+             ^  *                           *   ^
+              ^ *                           *  ^  
+               ^*                           * ^ 
+                ^ *                        * ^
+                 ^ *                      *  ^
+                  ^  *       ) (         * ^
+                      ^^^^^^^^ ^^^^^^^^^ "
 
 welcome
 while exit_app == false do 
