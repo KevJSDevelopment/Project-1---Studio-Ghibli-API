@@ -1,5 +1,6 @@
 require_relative '../config/environment.rb'
 require_relative '../lib/console_communicator.rb'
+require 'colorize'
 
 exit_app = false
 
@@ -34,7 +35,7 @@ while exit_app == false do
         find_chars_by_species
         exit_app = exit_program
     elsif response.to_i == 8 || response.downcase == "exit"
-        exit_app = exit_program
+        exit_app = true
     end
 
 end

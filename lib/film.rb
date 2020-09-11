@@ -10,25 +10,34 @@ class Film < ActiveRecord::Base
     end
 
     def self.find_film(film_name)
-        Film.all.find do |film|
+        found_film = Film.all.find do |film|
             film[:title] == film_name
+        end
+        if found_film == nil
+            return ""
+        else
+            return found_film
         end
     end
 
-    def self.find_film_id_by_name(film_title)
-        found_film = Film.all.find do |film|
-            film[:title] == film_title
-        end
-        found_film[:id]
-        # binding.pry
-    end
+    # def self.find_film_id_by_name(film_title)
+    #     found_film = Film.all.find do |film|
+    #         film[:title] == film_title
+    #     end
+    #     found_film[:id]
+    #     # binding.pry
+    # end
 
     def self.find_people_in_this_film(film_name)
         found_film = self.find_film(film_name)
-        Person.all.select do |person|
-            person[:film_id] == found_film[:id]
-        end.map do |person|
-            person[:name]
+        if found_film.is_a?(String)
+            return "Sorry, we couldn't find that film"
+        else
+            Person.all.select do |person|
+                person[:film_id] == found_film[:id]
+            end.map do |person|
+                person[:name]
+            end
         end
     end
 

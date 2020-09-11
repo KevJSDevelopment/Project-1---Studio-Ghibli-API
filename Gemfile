@@ -7,4 +7,4 @@ gem 'sinatra-activerecord'
 gem 'require_all'
 gem 'rest-client'
 gem 'json'
-
+gem 'colorize'
