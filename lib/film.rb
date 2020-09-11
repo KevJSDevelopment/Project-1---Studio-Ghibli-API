@@ -11,7 +11,7 @@ class Film < ActiveRecord::Base
 
     def self.find_film(film_name)
         found_film = Film.all.find do |film|
-            film[:title] == film_name
+            film[:title].downcase == film_name.downcase
         end
         if found_film == nil
             return ""

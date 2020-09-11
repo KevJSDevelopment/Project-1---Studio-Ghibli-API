@@ -3,7 +3,7 @@ class Species < ActiveRecord::Base
 
     def self.find_species(species_name)
         found_species = self.all.find do |species|
-            species[:name] == species_name
+            species[:name].downcase == species_name.downcase
         end
         if found_species == nil
             return ""

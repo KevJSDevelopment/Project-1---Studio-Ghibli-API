@@ -17,7 +17,7 @@ class Person < ActiveRecord::Base
 
     def self.find_person_by_name(person_name)
         found_person = self.all.find do |person|
-            person[:name] == person_name
+            person[:name].downcase == person_name.downcase
         end
         if found_person != nil
             return found_person

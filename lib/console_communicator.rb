@@ -59,7 +59,12 @@ end
 
 def find_people_in_film
     puts "\nWhat film do you want to find the characters of?".light_yellow.on_light_blue
+    puts "Type 'films' to get a list of films"
     film_name = gets.chomp
+    while film_name.downcase == "films" do
+        puts "#{film_list}\nEnter a film you wish to see the characters of:"
+        film_name = gets.chomp
+    end
     if Film.find_people_in_this_film(film_name).is_a?(String)
         puts Film.find_people_in_this_film(film_name)
     else
@@ -85,7 +90,7 @@ def find_chars_by_species
     puts "\nEnter a species that's in one of the films".light_yellow.on_light_blue
     puts "Type 'species' to get a list of all the species"#.white.on_light_blue
     response = gets.chomp
-    if response.downcase == 'species'
+    while response.downcase == 'species' do
         puts "#{species_list}\nEnter a species to search:"#.white.on_light_blue
         response = gets.chomp
     end
@@ -98,4 +103,11 @@ def species_list
     return Species.all.map do |species|
         species[:name]
     end.join("\n")#.white.on_light_blue
+end
+
+def film_list
+    puts "\nAll the films made by Studio Ghibli are:".light_yellow.on_light_blue
+    return Film.all.map do |film|
+        film[:title]
+    end.join("\n")
 end
