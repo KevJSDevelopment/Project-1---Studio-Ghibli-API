@@ -20,14 +20,7 @@ class Film < ActiveRecord::Base
         end
     end
 
-    # def self.find_film_id_by_name(film_title)
-    #     found_film = Film.all.find do |film|
-    #         film[:title] == film_title
-    #     end
-    #     found_film[:id]
-    #     # binding.pry
-    # end
-
+    
     def self.find_people_in_this_film(film_name)
         found_film = self.find_film(film_name)
         if found_film.is_a?(String)
@@ -40,7 +33,7 @@ class Film < ActiveRecord::Base
             end
         end
     end
-
+    
     def self.highest_rated
         Film.all.max_by(3) do |film|
             film[:rating]
@@ -48,7 +41,7 @@ class Film < ActiveRecord::Base
             film[:title]
         end
     end
-
+    
     def self.lowest_rated
         Film.all.min_by(3) do |film|
             film[:rating]
@@ -56,12 +49,20 @@ class Film < ActiveRecord::Base
             film[:title]
         end
     end
-
+    
     def self.list_by_rating
         Film.all.sort_by{|film| -film[:rating]}.map do |film|
             film[:title]
         end
     end
+    
+    # def self.find_film_id_by_name(film_title)
+    #     found_film = Film.all.find do |film|
+    #         film[:title] == film_title
+    #     end
+    #     found_film[:id]
+    #     # binding.pry
+    # end
 
     # def self.film_locations(film)
     #     film_id = self.find_film_id_by_name(film)

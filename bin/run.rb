@@ -39,11 +39,3 @@ while exit_app == false do
     end
 
 end
-#elsif 
-
-# p Person.find_species("Ashitaka")
-# p Film.find_people_in_this_film("My Neighbor Totoro")
-# p Film.highest_rated
-# p Film.lowest_rated
-# p Film.list_by_rating
-# p Species.find_all_people_of_species("Deer")
